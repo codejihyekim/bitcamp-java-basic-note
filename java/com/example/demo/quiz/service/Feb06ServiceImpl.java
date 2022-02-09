@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.demo.quiz.service;
 
 /**
  * packageName: com.example.demo.service
@@ -11,7 +11,7 @@ package com.example.demo.service;
  * ================================
  * 2022-02-08         codejihyekim      최초 생성
  */
-public class QuizServiceImpl implements QuizService{
+public class Feb06ServiceImpl implements Feb06Service {
     @Override
     public void quiz1(String[] arr) {
         String s ="";

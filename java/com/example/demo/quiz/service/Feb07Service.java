@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.demo.quiz.service;
 
 import java.util.Scanner;
 
@@ -18,5 +18,5 @@ public interface Feb07Service {
     void rps(Scanner scanner);
     void getPrime(int num1, int num2);
     void leapYear(Scanner scanner);
-    String numberGolf();
+    void numberGolf(Scanner scanner);
 }

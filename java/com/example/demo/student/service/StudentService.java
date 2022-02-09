@@ -1,6 +1,6 @@
-package com.example.demo.service;
+package com.example.demo.student.service;
 
-import com.example.demo.domain.*;
+import com.example.demo.student.domain.*;
 
 /**
  * packageName: com.example.demo.service

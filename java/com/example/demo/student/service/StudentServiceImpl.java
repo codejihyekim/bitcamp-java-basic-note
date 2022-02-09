@@ -1,6 +1,7 @@
-package com.example.demo.service;
+package com.example.demo.student.service;
 
-import com.example.demo.domain.*;
+import com.example.demo.student.domain.*;
+import com.example.demo.student.service.StudentService;
 
 /**
  * packageName: com.example.demo.service
@@ -13,7 +14,7 @@ import com.example.demo.domain.*;
  * ================================
  * 2022-02-08         codejihyekim      최초 생성
  */
-public class StudentServiceImpl implements StudentService{
+public class StudentServiceImpl implements StudentService {
     @Override
     public String getBmi(BmiDTO param) {
         String s = "";
