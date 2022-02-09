@@ -18,6 +18,10 @@ public class GelPhone extends IPhone{
     public final static String KIND = "갤럭시";
     private String pay;
 
+    public GelPhone (String company){
+        super(company);
+    }
+
     public String getPay() {
         return pay;
     }
@@ -28,8 +32,6 @@ public class GelPhone extends IPhone{
 
     @Override
     public String toString() {
-        return "GelPhone{" + KIND +
-                "pay='" + pay + '\'' +
-                '}';
+        return String.format("%s 에서 만든 %S 제품을 사용해서 %S로 결제한다.",super.getCompany(),KIND,pay);
     }
 }

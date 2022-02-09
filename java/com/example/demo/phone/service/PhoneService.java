@@ -1,21 +1,24 @@
 package com.example.demo.phone.service;
 
-import java.util.Scanner;
+import com.example.demo.phone.domain.CelPhone;
+import com.example.demo.phone.domain.GelPhone;
+import com.example.demo.phone.domain.IPhone;
+import com.example.demo.phone.domain.Phone;
 
 /**
  * packageName: com.example.demo.phone.service
  * fileName        : PhoneService
  * author          : codejihyekim
- * date            : 2022-02-08
+ * date            : 2022-02-09
  * desc            :
  * ================================
  * DATE              AUTHOR        NOTE
  * ================================
- * 2022-02-08         codejihyekim      최초 생성
+ * 2022-02-09         codejihyekim      최초 생성
  */
 public interface PhoneService {
-    void userPhone(Scanner scanner);
-    void userCelPhone(Scanner scanner);
-    void userIPhone(Scanner scanner);
-    void userGalPhone(Scanner scanner);
+    void usePhone(Phone phone);
+    void useCelPhone(CelPhone celPhone );
+    void useIPhone(IPhone iPhone);
+    void useGelPhone(GelPhone gelPhone);
 }

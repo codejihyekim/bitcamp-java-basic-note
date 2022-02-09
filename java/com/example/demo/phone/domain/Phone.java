@@ -14,25 +14,21 @@ import org.springframework.scheduling.support.SimpleTriggerContext;
  * 2022-02-09         codejihyekim      최초 생성
  */
 public class Phone {
-    private String kind;
-    private String company;
-    private String call;
+    protected String kind;
+    protected String company;
+    protected String call;
 
+    public Phone(String kind,String company){
+        this.kind = kind;
+        this.company = company;
+    }
 
     public String getKind() {
         return kind;
     }
 
-    public void setKind(String kind) {
-        this.kind = kind;
-    }
-
     public String getCompany() {
         return company;
-    }
-
-    public void setCompany(String company) {
-        this.company = company;
     }
 
     public String getCall() {
@@ -45,10 +41,10 @@ public class Phone {
 
     @Override
     public String toString() {
-        return "집전화기{" +
-                "kind='" + kind + '\'' +
-                ", company='" + company + '\'' +
-                ", call='" + call + '\'' +
+        return  "집전화기{" +
+                "폰종류=" + kind + '\'' +
+                ", 제조사=" + company + '\'' +
+                ", 통화내역=" + call + '\'' +
                 '}';
     }
 }

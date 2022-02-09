@@ -14,7 +14,12 @@ package com.example.demo.phone.domain;
 public class CelPhone extends Phone{
 
     private boolean portable;
-    private String move;
+    protected String move;
+
+    public CelPhone(String kind,String company,String move){
+        super(kind,company);
+        this.move = move;
+    }
 
     public boolean isPortable() {
         return portable;
@@ -28,12 +33,8 @@ public class CelPhone extends Phone{
         return move;
     }
 
-    public void setMove(String move) {
-        this.move = move;
-    }
-
     @Override
     public String toString() {
-        return String.format("%s 인 %s 제품을 사용해서 %S 라고 %s 통화한다.",super.getKind());
+        return String.format("%s 인 %s 제품을 사용해서 %S 라고 %s 통화한다.",super.getKind(),super.getCompany(),super.getCall(),move);
     }
 }

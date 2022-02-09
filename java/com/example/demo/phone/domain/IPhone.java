@@ -12,8 +12,12 @@ package com.example.demo.phone.domain;
  * 2022-02-09         codejihyekim      최초 생성
  */
 public class IPhone extends CelPhone{
-    private final static String KIND = "아이폰";
-    private String search;
+    protected final static String KIND = "아이폰";
+    protected String search;
+
+    public IPhone(String company) {
+        super(KIND, company,"이동중에");
+    }
 
     public String getSearch() {
         return search;
@@ -25,8 +29,6 @@ public class IPhone extends CelPhone{
 
     @Override
     public String toString() {
-        return "IPhone{" + KIND +
-                "search='" + search + '\'' +
-                '}';
+        return String.format("%s 에서 만든 %s을 사용해서 %s %s를 검색한다.",super.getCompany(),KIND,super.getMove(),search);
     }
 }
