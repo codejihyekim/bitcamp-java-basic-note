@@ -19,7 +19,7 @@ public class DemoApplication {
 		QuizController quizController = new QuizController();
 
 		while (true){
-			System.out.println("0.Exit 1.Aut 2.폰 3.퀴즈 4.알고리즘");
+			System.out.println("0.Exit 1.Auth 2.폰 3.퀴즈 4.알고리즘");
 			switch (scanner.next()){
 				case "0":
 					System.out.println("Exit");return;
