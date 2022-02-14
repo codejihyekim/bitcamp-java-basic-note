@@ -12,7 +12,6 @@ package com.example.demo.phone.domain;
  * 2022-02-09         codejihyekim      최초 생성
  */
 public class CelPhone extends Phone{
-
     private boolean portable;
     protected String move;
 

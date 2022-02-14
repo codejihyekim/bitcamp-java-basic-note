@@ -1,7 +1,6 @@
 package com.example.demo.student.service;
 
 import com.example.demo.student.domain.*;
-import com.example.demo.student.service.StudentService;
 
 /**
  * packageName: com.example.demo.service
@@ -15,6 +14,8 @@ import com.example.demo.student.service.StudentService;
  * 2022-02-08         codejihyekim      최초 생성
  */
 public class StudentServiceImpl implements StudentService {
+
+
     @Override
     public String getBmi(BmiDTO param) {
         String s = "";
@@ -84,7 +85,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public String login(LoginDTO login) {
+    public String login(UserDTO login) {
         /*
         String result = "";
         if(login.getPw().equals(login.PASSWORD)) {
@@ -107,7 +108,7 @@ public class StudentServiceImpl implements StudentService {
         return result;
         */
 
-        return (login.getPw().equals(LoginDTO.PASSWORD)) ? String.format(" %s 님의 비번 %s 가 맞습니다. 로그인 성공 ", login.getName(), login.getPw())
+        return (login.getPw().equals(UserDTO.PASSWORD)) ? String.format(" %s 님의 비번 %s 가 맞습니다. 로그인 성공 ", login.getName(), login.getPw())
                 : String.format(" %s 의 ID는 맞고, 비번 %s 가 틀립니다. 로그인 실패 ",login.getId(),login.getPw());
     }
 }

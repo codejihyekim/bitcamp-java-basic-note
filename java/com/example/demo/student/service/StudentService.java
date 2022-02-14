@@ -18,5 +18,5 @@ public interface StudentService {
     String calc(CalcDTO calc);
     String google(GoogleDTO google);
     String getGrade(GradeDTO grade);
-    String login(LoginDTO login);
+    String login(UserDTO login);
 }

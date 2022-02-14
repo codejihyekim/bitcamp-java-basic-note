@@ -20,9 +20,11 @@ public class QuizController {
         Feb06Service feb06Service = new Feb06ServiceImpl();
         Feb07Service feb07Service = new Feb07ServiceImpl();
         Feb08Service feb08Service = new Feb08ServiceImpl();
+        Feb10Service feb10Service = new Feb10ServiceImpl();
+
 
         while (true) {
-            System.out.println("[서브메뉴]\n 0)Exit 1)2월6일 2)2월7일 3)2월8일 4)2월9일");
+            System.out.println("[서브메뉴]\n 0)Exit 1)2월6일 2)2월7일 3)2월8일 4)2월10일");
             switch (scanner.next()){
                 case "0" :
                     System.out.println("Exit");return;
@@ -72,7 +74,7 @@ public class QuizController {
                     }
                     break;
                 case "3":
-                    System.out.println("[소메뉴]\n0.Exit \n1.lotto \n02.baseball  \n3.reservation \n4.bank \n5.gugudan");
+                    System.out.println("[소메뉴]\n0.Exit \n1.lotto \n2.baseball  \n3.reservation \n4.bank \n5.gugudan");
                     switch (scanner.next()){
                         case "0":
                             System.out.println("Exit");return;
@@ -100,6 +102,76 @@ public class QuizController {
                     break;
 
                 case "4" :
+                    System.out.println("[소메뉴]\n0.Exit \n1.bubbleSort \n2.insertionSort  \n3.selectionSort \n4.quickSort \n5.mergeSort \n6.magicSquare \n7.zigzag \n8.rectangleStarPrint \n9.triangleStarPrint" );
+                    switch (scanner.next()){
+                        case "0":
+                            System.out.println("Exit");return;
+                        case "1":
+                            System.out.println("bubbleSort");
+                            feb10Service.bubbleSort();
+                            break;
+                        case "2":
+                            System.out.println("insertionSort");
+                            feb10Service.insertionSort();
+                            break;
+                        case "3":
+                            System.out.println("selectionSort");
+                            feb10Service.selectionSort();
+                            break;
+                        case "4":
+                            System.out.println("quickSort");
+                            boolean duplicate;
+                            int num = 0;
+                            int[] array = new int[10];
+                            for (int i = 0 ; i < array.length; i++) {
+                                duplicate = true;
+                                while (duplicate) {
+                                    num = (int)(Math.random() * 100) + 1;
+                                    duplicate = false;
+                                    for (int j = 0; j < i; j++) {
+                                        if (array[j] == num) {
+                                            duplicate = true;
+                                            break;
+                                        }
+                                    }
+                                }
+                                array[i] = num;
+                            }
+                            System.out.print("퀵 정렬 전 데이터 : ");
+                            for (int i = 0; i < array.length; i++) {
+                                System.out.print(array[i] + " ");
+                            }
+                            System.out.println();
+                            array = feb10Service.quickSort(array, 0, array.length - 1);
+                            System.out.print("퀵 정렬 후 데이터 : ");
+                            for (int i = 0; i < array.length; i++) {
+                                System.out.print(array[i] + " ");
+                            }
+                            break;
+                        case "5":
+                            System.out.println("mergeSort");
+                            feb10Service.mergeSort();
+                            break;
+                        case "6":
+                            System.out.println("magicSquare");
+                            feb10Service.magicSquare();
+                            break;
+                        case "7":
+                            System.out.println("zigzag ");
+                            feb10Service.zigzag(scanner);
+                            break;
+                        case "8":
+                            System.out.println("rectangleStarPrint ");
+                            feb10Service.rectangleStarPrint(scanner);
+                            break;
+                        case "9":
+                            System.out.println("triangleStarPrint ");
+                            feb10Service.triangleStarPrint(scanner);
+                            break;
+                        default:
+                            System.out.println("Wrong number");
+                            break;
+                    }
                     ;break;
                 case "5" :
                     break;

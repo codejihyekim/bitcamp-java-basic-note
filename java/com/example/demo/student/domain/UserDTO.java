@@ -11,8 +11,15 @@ package com.example.demo.student.domain;
  * ================================
  * 2022-02-08         codejihyekim      최초 생성
  */
-public class LoginDTO {
+public class UserDTO {
     public static String LOGIN_TITLE = "로그인";
+
+    private final static UserDTO userDTO = new UserDTO();
+    private UserDTO(){}
+    public static UserDTO getInstance(){
+        return userDTO;
+    }
+
     String id;
     String pw;
     String name;

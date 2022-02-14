@@ -37,7 +37,7 @@ public class PhoneController {
                 case "2" :
                     System.out.println("extends가 상속이다.");
                     Phone phone = new Phone("금성전화기","금성전자");
-                    CelPhone celPhone = new CelPhone("핸드폰","블랙베리","이동중에");
+                    CelPhone celPhone = new CelPhone("핸드폰","블랙베리","이동중");
                     IPhone iPhone = new IPhone("애플");
                     GelPhone gelPhone = new GelPhone("삼성");
                     PhoneService phoneService = new PhoneServiceImpl();
