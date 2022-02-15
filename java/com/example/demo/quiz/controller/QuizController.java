@@ -158,7 +158,7 @@ public class QuizController {
                             break;
                         case "7":
                             System.out.println("zigzag ");
-                            feb10Service.zigzag(scanner);
+                            feb10Service.zigzag();
                             break;
                         case "8":
                             System.out.println("rectangleStarPrint ");

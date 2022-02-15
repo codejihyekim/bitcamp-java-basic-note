@@ -20,7 +20,7 @@ public interface Feb10Service {
     int[] quickSort(int[] array, int m, int n);
     void mergeSort();
     void magicSquare();
-    void zigzag(Scanner scanner);
+    void zigzag();
     void rectangleStarPrint(Scanner scanner);
     void triangleStarPrint(Scanner scanner);
 }

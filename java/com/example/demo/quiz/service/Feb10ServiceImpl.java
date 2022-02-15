@@ -273,18 +273,17 @@ public class Feb10ServiceImpl implements Feb10Service {
      * (출처 : http://ontheinfo.com/2241)
      * */
     @Override
-    public void zigzag(Scanner scanner) {
+    public void zigzag() {
         Random random = new Random();
-        int a = random.nextInt();
+        int a = random.nextInt(10);
         int[][] number = new int[a][a];
         int count = 1;
-        int j = 0;
+        int i;
+        int j;
 
-        for (int i = 0; i <= a - 1; i++) {
-
-
+        for (i = 0; i < a ; i++) {
             if ((i % 2) == 0) {
-                for (j = 0; j <= a - 1; j++) {
+                for (j = 0; j < a ; j++) {
                     number[i][j] = count;
                     count++;
                 }
@@ -298,10 +297,9 @@ public class Feb10ServiceImpl implements Feb10Service {
             }
         }
 
-        for (int k = 0; k <= a - 1; k++) {
-            for (int l = 0; l <= a - 1; l++) {
-                System.out.print(number[k][l] + "\t");
-
+        for (i = 0; i < a; i++){
+            for (j = 0; j < a; j++){
+                System.out.print(number[i][j]+"\t");
             }
             System.out.println();
         }
