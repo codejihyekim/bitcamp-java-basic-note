@@ -37,21 +37,10 @@ public class Feb08ServiceImpl implements Feb08Service{
             comNumbers[i] = (int)(Math.random()*45)+1;
             for (int j=0; j<i; j++){               //뽑은 6개 숫자 중 중복 숫자 제거
                 if (comNumbers[i]==comNumbers[j]){
-                    i--; break;
+                    i--;
                 }
             }
-        }
-        for (int i=0; i< comNumbers.length-1; i++){   //랜덤으로 뽑힌 숫자 오름차순으로 정렬
-            for (int j=i+1; j< comNumbers.length; j++){
-                if (comNumbers[i]>comNumbers[j]){
-                    int temp = comNumbers[i];
-                    comNumbers[i] = comNumbers[j];
-                    comNumbers[j] = temp;
-                }
-            }
-        }
-        for (int i=0; i<comNumbers.length; i++){
-            System.out.print("[" +comNumbers[i]+ "] ");
+            System.out.println("[" +comNumbers[i]+ "] ");
         }
 
         for (int i=0; i<6; i++) {         //내가 입력한 숫자와 컴퓨터가 랜덤으로 뽑은 숫자가 일치하면 count++

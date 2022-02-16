@@ -64,7 +64,7 @@ public class QuizController {
                             feb07Service.rps(scanner);break;
                         case "3":
                             System.out.println("getPrime");
-                            feb07Service.getPrime(scanner.nextInt(),scanner.nextInt());break;
+                            feb07Service.getPrime(scanner);break;
                         case "4":
                             System.out.println("leapYear");
                             feb07Service.leapYear(scanner);break;
@@ -120,22 +120,14 @@ public class QuizController {
                             break;
                         case "4":
                             System.out.println("quickSort");
-                            boolean duplicate;
-                            int num = 0;
                             int[] array = new int[10];
-                            for (int i = 0 ; i < array.length; i++) {
-                                duplicate = true;
-                                while (duplicate) {
-                                    num = (int)(Math.random() * 100) + 1;
-                                    duplicate = false;
-                                    for (int j = 0; j < i; j++) {
-                                        if (array[j] == num) {
-                                            duplicate = true;
-                                            break;
-                                        }
+                            for (int i=0; i<array.length; i++) {
+                                array[i]= (int)(Math.random()*100)+1;
+                                for (int j=0; j<i; j++) {
+                                    if (array[i]==array[j]) {
+                                        i--; break;
                                     }
                                 }
-                                array[i] = num;
                             }
                             System.out.print("퀵 정렬 전 데이터 : ");
                             for (int i = 0; i < array.length; i++) {
@@ -148,9 +140,19 @@ public class QuizController {
                                 System.out.print(array[i] + " ");
                             }
                             break;
+
                         case "5":
                             System.out.println("mergeSort");
-                            feb10Service.mergeSort();
+                            int[] a = new int[10];
+                            for (int i=0; i<a.length; i++) {
+                                a[i]= (int)(Math.random()*100)+1;
+                                for (int j=0; j<i; j++) {
+                                    if (a[i]==a[j]) {
+                                        i--; break;
+                                    }
+                                }
+                            }
+                            feb10Service.mergeSort(a);
                             break;
                         case "6":
                             System.out.println("magicSquare");

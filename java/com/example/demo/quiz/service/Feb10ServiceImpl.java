@@ -155,63 +155,51 @@ public class Feb10ServiceImpl implements Feb10Service {
      * 주어진 리스트를 절반으로 분할하여 부분리스트로 나누다.
      * 해당 부분리스트의 길이가 1이 아니라면 1번 과정을 되풀이한다.
      * 인접한 부분리스트끼리 정렬하여 합친다.
-     *
      * https://javaoop.tistory.com/7?category=836002
      * */
     @Override
-    public void mergeSort(/*int[] arr, int left, int right*/) {
-       //식은 어느정도 이해가 되는데 실행시키는데 어려움이 있습니다.
-        int[] arr = new int[10];
-        for (int i=0; i<arr.length; i++) {
-            arr[i]= (int)(Math.random()*100)+1;
-            for (int j=0; j<i; j++) {
-                if (arr[i]==arr[j]) {
-                    i--; break;
-                }
+    public void mergeSort(int[] a) {
+        //어떻게 실행을 해야될 지 모르겠습니다.
+    }
+    private static void mergeSortDevide(int[]a, int left, int right){
+        if (left < right) {  //원소의 수가 2개 이상일 경우 실행
+            int mid = (left + right) / 2; //반으로 나누기 위한 변수
+            mergeSortDevide(a, left, mid); //앞(왼쪽)부분 재귀호출출
+            mergeSortDevide(a, mid + 1, right); //뒤(오른쪽)부분 재귀호출
+            merge(a, left, mid, right); //병합
+        }
+    }
+    private static void merge(int[]a,int left, int mid, int right){
+        int i = left; //왼쪽 시작
+        int j = mid + 1; // 오른쪽 시작
+        int tempIndex = left;
+        int[] temp = new int[a.length];
+
+        while (i <= mid && j <= right){
+            if (a[i] <a[j]){
+                temp[tempIndex] = a[i];
+                tempIndex++;
+                i++;
+            } else{
+                temp[tempIndex] = a[j];
+                tempIndex++;
+                j++;
             }
         }
-        /*원소를 반으로 나누는 함수
-        mergeSortDevide(arr, 0, arr.length -1);
-
-        private static void mergeSortDevide(int[]arr, int left, int right){
-          원소의 수가 2개 이상일 경우 실행
-           if(left < right) {
-               int mid = (left+right)/2; 반으로 나누기 위한 변수
-               mergeSortDevide(arr,left,mid); 앞(왼쪽)부분 재귀호출
-               mergeSortDevide(arr,mid+1,right); 뒤(오른쪽)부분 재귀 호출
-               merge(arr,left,mid,right); 원소를 Merge하는 함수
-           }
-         }
-
-         private static void merge(int[] arr,int left, int mid, int right){
-           int i = left; 왼쪽 부분리스트 시작점
-           int j = mid+1; 오른쪽 부분리스트의 시작점
-           int tempIndex = left; 채워넣을 배열의 인덱스
-           int[] temp = new int[arr.length];
-           while(i <= mid && j <= right){
-               if(arr[i] < arr[j]){
-                   temp[tempIndex++]=arr[i++];
-               }else{
-                   temp[tempIndex++]=arr[j++];
-               }
-           }
-           앞 부분 배열에 원소가 남아있는 경우
-           while(i <= mid){
-               temp[tempIndex++]=arr[i++];
-           }
-           뒤부분 배열에 원소가 남아있는 경우우
-           while(j <= right){
-               temp[tempIndex++]=arr[j++];
-           }
-           for(int index = left;index < tempIndex;index++){
-               arr[index] = temp[index];
-           }
-         }
-        */
-
-        for (int i = 0; i < arr.length;i++){
-            System.out.println(arr[i]+" ");
+        while (i <= mid){ //앞부분 배열에 원소가 남아있는 경우
+            temp[tempIndex] = a[i];
+            tempIndex++;
+            i++;
         }
+        while (j <= right){ //뒤부분 배열에 원소가 남아있는 경우
+            temp[tempIndex] = a[j];
+            tempIndex++;
+            j++;
+        }
+        for (int index = left; index < tempIndex; index++){
+            a[index] = temp[index];
+        }
+
     }
 
     /** author      : 최은아
