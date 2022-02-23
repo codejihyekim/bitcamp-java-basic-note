@@ -102,7 +102,7 @@ public class QuizController {
                     break;
 
                 case "4" :
-                    System.out.println("[소메뉴]\n0.Exit \n1.bubbleSort \n2.insertionSort  \n3.selectionSort \n4.quickSort \n5.mergeSort \n6.magicSquare \n7.zigzag \n8.rectangleStarPrint \n9.triangleStarPrint" );
+                    System.out.println("\n[소메뉴]\n0.Exit \n1.bubbleSort \n2.insertionSort  \n3.selectionSort \n4.quickSort \n5.mergeSort \n6.magicSquare \n7.zigzag \n8.rectangleStarPrint \n9.triangleStarPrint" );
                     switch (scanner.next()){
                         case "0":
                             System.out.println("Exit");return;
@@ -143,16 +143,7 @@ public class QuizController {
 
                         case "5":
                             System.out.println("mergeSort");
-                            int[] a = new int[10];
-                            for (int i=0; i<a.length; i++) {
-                                a[i]= (int)(Math.random()*100)+1;
-                                for (int j=0; j<i; j++) {
-                                    if (a[i]==a[j]) {
-                                        i--; break;
-                                    }
-                                }
-                            }
-                            feb10Service.mergeSort(a);
+                            feb10Service.mergeSort();
                             break;
                         case "6":
                             System.out.println("magicSquare");

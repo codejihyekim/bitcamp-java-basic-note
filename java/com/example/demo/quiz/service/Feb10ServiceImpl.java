@@ -158,49 +158,48 @@ public class Feb10ServiceImpl implements Feb10Service {
      * https://javaoop.tistory.com/7?category=836002
      * */
     @Override
-    public void mergeSort(int[] a) {
-        //어떻게 실행을 해야될 지 모르겠습니다.
-    }
-    private static void mergeSortDevide(int[]a, int left, int right){
-        if (left < right) {  //원소의 수가 2개 이상일 경우 실행
-            int mid = (left + right) / 2; //반으로 나누기 위한 변수
-            mergeSortDevide(a, left, mid); //앞(왼쪽)부분 재귀호출출
-            mergeSortDevide(a, mid + 1, right); //뒤(오른쪽)부분 재귀호출
-            merge(a, left, mid, right); //병합
+    public void mergeSort() {
+        int[] arr = new int[10];
+        System.out.print("정렬 전 데이터: ");
+        for (int i=0; i<arr.length; i++) {    //1~100까지의 정수 중 랜덤으로 10개 숫자 뽑기
+            arr[i]= (int)(Math.random()*100)+1;
+            for (int j=0; j<i; j++) {
+                if (arr[i]==arr[j]) {
+                    i--; break;
+                }
+            }
+            System.out.print(+arr[i]+"\t");
+
+        }
+        System.out.println();
+        merge(arr, 0, arr.length-1);
+        System.out.print("정렬 후 데이터: ");
+        for(int i = 0; i <arr.length; i++){
+            System.out.print(+arr[i]+"\t");
         }
     }
-    private static void merge(int[]a,int left, int mid, int right){
-        int i = left; //왼쪽 시작
-        int j = mid + 1; // 오른쪽 시작
-        int tempIndex = left;
-        int[] temp = new int[a.length];
-
-        while (i <= mid && j <= right){
-            if (a[i] <a[j]){
-                temp[tempIndex] = a[i];
-                tempIndex++;
-                i++;
-            } else{
-                temp[tempIndex] = a[j];
-                tempIndex++;
-                j++;
+    public void merge(int[] arr, int left, int right) {
+        int[] tmp = new int[arr.length];
+        if (left < right) {
+            int mid = (left + right) / 2;
+            merge(arr, left, mid);
+            merge(arr, mid + 1, right);
+            int leftIndex = left;
+            int midIndex = mid + 1;
+            int idx = leftIndex;
+            while (leftIndex <= mid || midIndex <= right) {
+                if (midIndex > right || (leftIndex <= mid && arr[leftIndex] < arr[midIndex])) {
+                    tmp[idx++] = arr[leftIndex++];
+                } else {
+                    tmp[idx++] = arr[midIndex++];
+                }
+            }
+            for (int i = left; i <= right; i++) {
+                arr[i] = tmp[i];
             }
         }
-        while (i <= mid){ //앞부분 배열에 원소가 남아있는 경우
-            temp[tempIndex] = a[i];
-            tempIndex++;
-            i++;
-        }
-        while (j <= right){ //뒤부분 배열에 원소가 남아있는 경우
-            temp[tempIndex] = a[j];
-            tempIndex++;
-            j++;
-        }
-        for (int index = left; index < tempIndex; index++){
-            a[index] = temp[index];
-        }
-
     }
+
 
     /** author      : 최은아
      * 홀수 마방진 구하기
